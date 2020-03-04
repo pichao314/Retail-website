@@ -8,12 +8,11 @@
 <body>
 
 <div>
-    <img src="logo.png" alt="LOGO" style="float: left"/>
-    <h1 style="font-size: 60px">HOME for PC</h1>
+    <img src="logo.png" alt="LOGO" style="float: left" width="196" height="70"/>
 </div>
 
 <div>
-    <ul>
+    <ul style="font-size: 40px">
         <li><a href="#home">Home</a></li>
         <li><a href="#product">Product</a></li>
         <li><a href="#news">News</a></li>
@@ -21,8 +20,6 @@
         <li><a href="#about">About</a></li>
     </ul>
 </div>
-
-<br>
 
 <hr>
 
@@ -156,7 +153,8 @@
     </h1>
 
     <p>
-        As a top computer hardware solution provider, we have a professional team and more than ten years of experience
+        PC314 is a top computer hardware solution provider, we have a professional team and more than ten years of
+        experience
         to provide you with reliable installation and deployment solutions.
     </p>
 </div>
