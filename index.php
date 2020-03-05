@@ -23,7 +23,7 @@
 
 <hr>
 
-<div id="#home">
+<div id="home">
     <h1>
         Home
     </h1>
@@ -47,7 +47,7 @@
 
 <hr>
 
-<div id="#product">
+<div id="product">
     <h1>
         Products
     </h1>
@@ -88,7 +88,7 @@
 
 <hr>
 
-<div id="#news">
+<div id="news">
     <h1>
         News
     </h1>
@@ -130,7 +130,7 @@
 
 <hr>
 
-<div id="#contact">
+<div id="contact">
     <h1>
         Contacts
     </h1>
@@ -147,7 +147,7 @@
 
 <hr>
 
-<div id="#about">
+<div id="about">
     <h1>
         About
     </h1>
