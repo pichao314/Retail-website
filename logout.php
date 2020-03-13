@@ -17,6 +17,6 @@ echo "    <a href=\"index.php\">
         <img src=\"logo.png\" alt=\"LOGO\" style=\"float: left\" width=\"196\" height=\"70\"/>
     </a>";
 echo "Bye, ".$username.'<br>';
-echo "<a href='login.html'>Log in again</a>";
+echo "<a href='login.php'>Log in again</a>";
 
 ?>
