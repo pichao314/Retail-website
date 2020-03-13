@@ -8,7 +8,9 @@
 <body>
 
 <div>
-    <img src="logo.png" alt="LOGO" style="float: left" width="196" height="70"/>
+    <a href="index.php">
+        <img src="logo.png" alt="LOGO" style="float: left" width="196" height="70"/>
+    </a>
 </div>
 
 <div>
@@ -18,6 +20,7 @@
         <li><a href="#news">News</a></li>
         <li><a href="#contact">Contact</a></li>
         <li><a href="#about">About</a></li>
+        <li><a href="login.html">User Info</a></li>
     </ul>
 </div>
 
