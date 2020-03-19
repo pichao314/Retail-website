@@ -42,7 +42,7 @@ if (isset($_SESSION['islogin'])) {
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     }
-    echo "Connected successfully<br>";
+//    echo "Connected successfully<br>";
 //
 //    // sql to create table
 //    $sql = "CREATE TABLE Users (
@@ -100,7 +100,7 @@ if (isset($_SESSION['islogin'])) {
 
     $id = 1;
     $sql = "SELECT * FROM Users WHERE id = " . $id;
-    echo $sql . "<br>";
+//    echo $sql . "<br>";
 
     $result = $conn->query($sql);
 
@@ -121,7 +121,7 @@ if (isset($_SESSION['islogin'])) {
         $conn->close();
         // Create connection
         $conn = new mysqli($servername, $username, $password, $dbname);
-        echo $sql . "<br>";
+//        echo $sql . "<br>";
         $result = $conn->query($sql);
 
     }
