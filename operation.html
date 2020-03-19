@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PC314 - USERS</title>
+</head>
+
+<body>
+<div>
+    <a href="index.php">
+        <img src="resource/logo.png" alt="LOGO" style="float: left" width="196" height="70"/>
+    </a><br><br><br><br>
+</div>
+
+<form action="operation.php" method="post">
+    <fieldset>
+        <legend>Add or Search</legend>
+        <ul>
+            <li>
+                <label>FirstName:</label>
+                <input type="text" name="firstname">
+            </li>
+            <li>
+                <label>LastName:</label>
+                <input type="text" name="lastname">
+            </li>
+            <li>
+                <label>Email:</label>
+                <input type="email" name="email">
+            </li>
+            <li>
+                <label>HomeAddr:</label>
+                <input type="text" name="addr">
+            </li>
+            <li>
+                <label>HomePhone:</label>
+                <input type="tel" name="hphone">
+            </li>
+            <li>
+                <label>CellPhone:</label>
+                <input type="tel" name="cphone">
+            </li>
+        </ul>
+
+        <input type="radio" id="add" name="op" value="add">
+        <label for="add">ADD</label><br>
+        <input type="radio" id="search" name="op" value="search">
+        <label for="search">SEARCH</label><br>
+
+        <label> </label>
+        <input type="submit" name="submit" value="Go!">
+
+    </fieldset>
+</form>
+
+<a href='users.php'>Return</a><br>
+
+</body>
+
+</html>

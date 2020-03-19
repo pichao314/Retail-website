@@ -1,3 +1,7 @@
+<?php
+// open Session
+session_start();
+?>
 <!DOCTYPE HTML>
 <html lang="en">
 <head>
@@ -13,9 +17,6 @@
 </div>
 
 <?php
-header('Content-type:text/html; charset=utf-8');
-// open Session
-session_start();
 
 // check if the cookie remembered the user info
 if (isset($_COOKIE['username'])) {
@@ -25,16 +26,11 @@ if (isset($_COOKIE['username'])) {
 }
 if (isset($_SESSION['islogin'])) {
     // if already logged in
-//    echo "Hello! " . $_SESSION['username'] . ' ,Welcome to the user page!<br>';
-//    echo "<div>
-//    Current users:<br>
-//    <uo>
-//        <li>Mary Smith</li>
-//        <li>John Wang</li>
-//        <li>Alex Bington</li>
-//    </uo>
-//</div>";
-    $servername = "localhost";
+    echo "Hello! " . $_SESSION['username'] . ' ,Welcome to the user page!<br>';
+    // alter mysql user
+//    ALTER USER 'mysqlUsername'@'localhost' IDENTIFIED WITH mysql_native_password BY 'mysqlUsernamePassword'
+
+    $servername = "127.0.0.1";
     $username = "root";
     $password = "271828ppp";
     $dbname = "pc314";
@@ -47,23 +43,23 @@ if (isset($_SESSION['islogin'])) {
         die("Connection failed: " . $conn->connect_error);
     }
 //    echo "Connected successfully<br>"
-
-    // sql to create table
-    $sql = "CREATE TABLE Users (
-id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-firstname VARCHAR(30) NOT NULL,
-lastname VARCHAR(30) NOT NULL,
-email VARCHAR(50),
-homeaddr VARCHAR(50),
-homephone VARCHAR(50),
-cellphone VARCHAR(50),
-reg_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-)";
+//
+//    // sql to create table
+//    $sql = "CREATE TABLE Users (
+//id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+//firstname VARCHAR(30) NOT NULL,
+//lastname VARCHAR(30) NOT NULL,
+//email VARCHAR(50),
+//homeaddr VARCHAR(50),
+//homephone VARCHAR(50),
+//cellphone VARCHAR(50),
+//reg_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+//)";
 //
 //    if (!$conn->query("DROP TABLE IF EXISTS Users") || !$conn->query($sql) === TRUE) {
 //        echo "Error creating table: " . $conn->error;
 //    }
-//    echo "Table Users created successfully";
+////    echo "Table Users created successfully <br>";
 //
 //    $sql = "INSERT INTO Users (firstname, lastname, email, homeaddr, homephone, cellphone) VALUES ('Franchesca', 'Kirch', 'Franchesca@example.com','Kirch home','0000000','0000000');";
 //    $sql .= "INSERT INTO Users (firstname, lastname, email, homeaddr, homephone, cellphone) VALUES ('Detra', 'Yeomans', 'Detra@example.com','Yeomans home','1111111','1111111');";
@@ -88,30 +84,64 @@ reg_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 //
 //    if ($conn->multi_query($sql) === TRUE) {
 //        $last_id = $conn->insert_id;
-//        echo "New record created successfully. Last inserted ID is: " . $last_id;
+////        echo "New record created successfully. Last inserted ID is: " . $last_id . "<br>";
 //    } else {
-//        echo "Error: " . $sql . "<br>" . $conn->error;
+//        echo "Error: " . $sql . "<br>" . $conn->error . "<br>";
+//    }
+//
+//    $conn->close();
+//    // Create connection
+//    $conn = new mysqli($servername, $username, $password, $dbname);
+//
+//// Check connection
+//    if ($conn->connect_error) {
+//        die("Connection failed: " . $conn->connect_error);
 //    }
 
+    $id = 1;
+    $sql = "SELECT * FROM Users WHERE id = " . $id;
+//    echo $sql . "<br>";
 
-    $sql = "SELECT id, firstname, lastname FROM Users";
     $result = $conn->query($sql);
 
-    if ($result->num_rows > 0) {
-        // output data of each row
-        while ($row = $result->fetch_assoc()) {
-            echo "id: " . $row["id"] . " - Name: " . $row["firstname"] . " " . $row["lastname"] . "<br>";
-        }
-    } else {
-        echo "0 results";
+    echo "<table border='1'><tr><th>ID</th><th>First Name</th><th>Last Name</th><th>Email</th><th>Home Address</th><th>Home Phone</th><th>Cell Phone</th></tr>";
+
+    while ($row = $result->fetch_assoc()) {
+        echo "<tr>";
+        echo "<td>" . $row['id'] . "</td>";
+        echo "<td>" . $row['firstname'] . "</td>";
+        echo "<td>" . $row['lastname'] . "</td>";
+        echo "<td>" . $row['email'] . "</td>";
+        echo "<td>" . $row['homeaddr'] . "</td>";
+        echo "<td>" . $row['homephone'] . "</td>";
+        echo "<td>" . $row['cellphone'] . "</td>";
+        echo "</tr>";
+        $id += 1;
+        $sql = "SELECT * FROM Users WHERE id = " . $id;
+        $conn->close();
+        // Create connection
+        $conn = new mysqli($servername, $username, $password, $dbname);
+//        echo $sql . "<br>";
+        $result = $conn->query($sql);
+
     }
+    echo "</table>";
+
+//    if ($result->num_rows > 0) {
+//        // output data of each row
+//        while ($row = $result->fetch_assoc()) {
+//            echo "id: " . $row["id"] . " - Name: " . $row["firstname"] . " " . $row["lastname"] . "<br>";
+//        }
+//    } else {
+//        echo "0 results";
+//    }
 
     $conn->close();
-    echo "<a href='operation.php'>Add or Search User</a><br>";
+    echo "<a href='operation.html'>Add or Search User</a><br>";
     echo "<a href='logout.php'>Log out</a><br>";
 } else {
     // not logged in
-    echo "You haven't logged in, please<a href='login.php'>log in</a>";
+    echo "You haven't logged in, please <a href='login.html'>log in</a>";
 }
 ?>
 

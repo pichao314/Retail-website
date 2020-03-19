@@ -20,7 +20,7 @@
         <li><a href="#news">News</a></li>
         <li><a href="#contact">Contact</a></li>
         <li><a href="#about">About</a></li>
-        <li><a href="login.php">User Info</a></li>
+        <li><a href="login.html">User Info</a></li>
     </ul>
 </div>
 
