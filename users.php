@@ -49,16 +49,16 @@ if (isset($_SESSION['islogin'])) {
 //    echo "Connected successfully<br>"
 
     // sql to create table
-//    $sql = "CREATE TABLE Users (
-//id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-//firstname VARCHAR(30) NOT NULL,
-//lastname VARCHAR(30) NOT NULL,
-//email VARCHAR(50),
-//homeaddr VARCHAR(50),
-//homephone VARCHAR(50),
-//cellphone VARCHAR(50),
-//reg_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-//)";
+    $sql = "CREATE TABLE Users (
+id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+firstname VARCHAR(30) NOT NULL,
+lastname VARCHAR(30) NOT NULL,
+email VARCHAR(50),
+homeaddr VARCHAR(50),
+homephone VARCHAR(50),
+cellphone VARCHAR(50),
+reg_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+)";
 //
 //    if (!$conn->query("DROP TABLE IF EXISTS Users") || !$conn->query($sql) === TRUE) {
 //        echo "Error creating table: " . $conn->error;
