@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title>PC314 - HOME</title>
-    <link rel="stylesheet" href="pcstyle.css">
+    <link rel="stylesheet" href="style/pcstyle.css">
 </head>
 <body>
 
 <div>
     <a href="index.php">
-        <img src="logo.png" alt="LOGO" style="float: left" width="196" height="70"/>
+        <img src="resource/logo.png" alt="LOGO" style="float: left" width="196" height="70"/>
     </a>
 </div>
 
@@ -139,7 +139,7 @@
     </h1>
 
     <?php
-    $contact = fopen("contacts.txt", "r") or die("File wrong!");
+    $contact = fopen("resource/contacts.txt", "r") or die("File wrong!");
     while (!feof($contact)) {
         echo fgets($contact) . "<br />";
     }

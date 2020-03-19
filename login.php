@@ -40,7 +40,7 @@ if (isset($_POST['cryptoPost'])) {
 </head>
 <body>
 <a href="index.php">
-    <img src="logo.png" alt="LOGO" style="float: left" width="196" height="70"/>
+    <img src="resource/logo.png" alt="LOGO" style="float: left" width="196" height="70"/>
 </a>
 
 <form id="form1" method="POST" action="login.php" onsubmit="return cryptoPost.encrypt('form1')">
@@ -79,7 +79,7 @@ if (isset($cryptedPost)) {
     $password = trim($_POST['password']);
     $_name = "admin";
     $_pswd = "";
-    $db = fopen("database.txt", "r") or die("File wrong!");
+    $db = fopen("resource/database.txt", "r") or die("File wrong!");
     while (!feof($db)) {
         $_pswd = fgets($db);
     }
