@@ -1,22 +1,34 @@
 <?php
 // open Session
 session_start();
+$urls = unserialize($_COOKIE['history']);
+array_push($urls, $_SERVER['PHP_SELF']);
+if (count($urls) > 5) {
+    array_shift($urls);
+}
+//print_r(array_values($urls));
+setcookie("history", serialize($urls), time() + (86400 * 30), "../");
+
+$dc = unserialize($_COOKIE['trend']);
+$dc['Aurora'] += 1;
+
+setcookie("trend", serialize($dc), time() + (86400 * 30), "../");
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>alw 51m</title>
+    <title>alw aurora</title>
 </head>
 <body>
 
 <div>
-    <a href="../index.php">
-        <img src="../resource/logo.png" alt="LOGO" style="float: left" width="196" height="70"/>
+    <a href="index.php">
+        <img src="resource/logo.png" alt="LOGO" style="float: left" width="196" height="70"/>
     </a><br><br><br><br>
 </div>
 
-<img src="../resource/arr.webp" style="width:300px;height:200px;">
+<img src="resource/arr.webp" style="width:300px;height:200px;">
 
 <h1>ALIENWARE AURORA R8</h1>
 
@@ -42,6 +54,6 @@ Up to 64GB Dual Channel HyperX™ FURY DDR4 XMP at 2933MHz
 
 Up to 2TB M.2 PCIe NVMe SSD (Boot) + 2TB 7200RPM SATA 6Gb/s (Storage)
 <br>
-<a href="../product.php">RETURN</a>
+<a href="product.php">RETURN</a>
 </body>
 </html>

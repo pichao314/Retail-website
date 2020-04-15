@@ -1,6 +1,18 @@
 <?php
 // open Session
 session_start();
+$urls = unserialize($_COOKIE['history']);
+array_push($urls, $_SERVER['PHP_SELF']);
+if (count($urls) > 5) {
+    array_shift($urls);
+}
+//print_r(array_values($urls));
+setcookie("history", serialize($urls), time() + (86400 * 30), "../");
+
+$dc = unserialize($_COOKIE['trend']);
+$dc['MBA'] += 1;
+
+setcookie("trend", serialize($dc), time() + (86400 * 30), "../");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -11,12 +23,12 @@ session_start();
 <body>
 
 <div>
-    <a href="../index.php">
-        <img src="../resource/logo.png" alt="LOGO" style="float: left" width="196" height="70"/>
+    <a href="index.php">
+        <img src="resource/logo.png" alt="LOGO" style="float: left" width="196" height="70"/>
     </a><br><br><br><br>
 </div>
 
-<img src="../resource/mba.jpg" style="width:300px;height:200px;">
+<img src="resource/mba.jpg" style="width:300px;height:200px;">
 
 <h1>APPLE MACBOOK AIR</h1>
 
@@ -48,6 +60,6 @@ Configurable to 512GB, 1TB, or 2TB SSD
 
 Configurable to 16GB of memory
 <br>
-<a href="../product.php">RETURN</a>
+<a href="product.php">RETURN</a>
 </body>
 </html>

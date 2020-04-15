@@ -1,6 +1,10 @@
 <?php
 // open Session
 session_start();
+$value = array();
+setcookie("history", serialize($value),time() + (86400 * 30), "/");
+$dc = array("51M"=>0,"Aurora"=>0,"M15"=>0,"M17"=>0,"R8"=>0,"RYZEN"=>0,"IMAC"=>0,"IMP"=>0,"MBA"=>0,"MBP"=>0);
+setcookie("trend",serialize($dc),time() + (86400 * 30), "/")
 ?>
 <!DOCTYPE HTML>
 <html lang="en">
@@ -17,6 +21,13 @@ session_start();
     </a><br><br><br><br>
 </div>
 
+<div>
+    <ul>
+        <li><a href="history.php">Last visited</a> </li>
+        <li><a href="trend.php">Most visited</a> </li>
+    </ul>
+</div>
+
 <h1>Laptops</h1>
 <table>
     <tr>
@@ -26,7 +37,7 @@ session_start();
     </tr>
     <tr>
         <td>
-            <a href="products/alw_51m.php">
+            <a href="alw_51m.php">
 
                 <img src="resource/51m.webp" style="width:300px;height:200px;"></td>
         </a>
@@ -37,7 +48,7 @@ session_start();
     </tr>
     <tr>
         <td>
-            <a href="products/alw_m15.php">
+            <a href="alw_m15.php">
 
                 <img src="resource/m15.webp" style="width:300px;height:200px;"></td>
         </a>
@@ -48,7 +59,7 @@ session_start();
     </tr>
     <tr>
         <td>
-            <a href="products/alw_m17.php">
+            <a href="alw_m17.php">
 
                 <img src="resource/m17.webp" style="width:300px;height:200px;"></td>
         </a>
@@ -59,7 +70,7 @@ session_start();
     </tr>
     <tr>
         <td>
-            <a href="products/apl_mba.php">
+            <a href="apl_mba.php">
 
                 <img src="resource/mba.jpg" style="width:300px;height:200px;"></td>
         </a>
@@ -72,7 +83,7 @@ session_start();
     </tr>
     <tr>
         <td>
-            <a href="products/apl_mbp.php">
+            <a href="apl_mbp.php">
 
                 <img src="resource/mbp.jpeg" style="width:300px;height:200px;"></td>
         </a>
@@ -92,7 +103,7 @@ session_start();
     </tr>
     <tr>
         <td>
-            <a href="products/alw_r8.php">
+            <a href="alw_r8.php">
                 <img src="resource/r8.webp" style="width:200px;height:300px;"></td>
         </a>
         <td>Alienware AURORA R8</td>
@@ -102,7 +113,7 @@ session_start();
     </tr>
     <tr>
         <td>
-            <a href="products/alw_arr.php">
+            <a href="alw_arr.php">
 
                 <img src="resource/arr.webp" style="width:200px;height:300px;"></td>
         </a>
@@ -113,7 +124,7 @@ session_start();
     </tr>
     <tr>
         <td>
-            <a href="products/alw_ryzen.php">
+            <a href="alw_ryzen.php">
 
                 <img src="resource/ryzen.webp" style="width:200px;height:300px;"></td>
         </a>
@@ -124,7 +135,7 @@ session_start();
     </tr>
     <tr>
         <td>
-            <a href="products/apl_imac.php">
+            <a href="apl_imac.php">
 
                 <img src="resource/imac.jpeg" style="width:300px;height:259px;"></td>
         </a>
@@ -133,7 +144,7 @@ session_start();
     </tr>
     <tr>
         <td>
-            <a href="products/apl_imp.php">
+            <a href="apl_imp.php">
 
                 <img src="resource/imacpro.jpeg" style="width:300px;height:250px;"></td>
         </a>
@@ -142,6 +153,7 @@ session_start();
         </td>
     </tr>
 </table>
+
 </body>
 
 </html>
