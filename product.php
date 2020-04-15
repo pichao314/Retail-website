@@ -1,10 +1,18 @@
 <?php
-// open Session
-session_start();
-$value = array();
-setcookie("history", serialize($value),time() + (86400 * 30), "/");
-$dc = array("51M"=>0,"Aurora"=>0,"M15"=>0,"M17"=>0,"R8"=>0,"RYZEN"=>0,"IMAC"=>0,"IMP"=>0,"MBA"=>0,"MBP"=>0);
-setcookie("trend",serialize($dc),time() + (86400 * 30), "/")
+if (!isset($_COOKIE['history'])) {
+    $arr = array();
+    setcookie('history', serialize($arr),time() + (86400 * 3),'/');
+} else {
+    $urls = unserialize($_COOKIE['history']);
+//    print_r(array_values($urls));
+}
+if (!isset($_COOKIE['trend'])) {
+    $dc = array("51M"=>0,"Aurora"=>0,"M15"=>0,"M17"=>0,"R8"=>0,"RYZEN"=>0,"IMAC"=>0,"IMP"=>0,"MBA"=>0,"MBP"=>0);
+    setcookie("trend",serialize($dc),time() + (86400 * 30), '/');
+} else {
+    $items = unserialize($_COOKIE['trend']);
+//    print_r(array_values($items));
+}
 ?>
 <!DOCTYPE HTML>
 <html lang="en">

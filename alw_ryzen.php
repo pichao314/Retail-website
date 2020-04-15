@@ -2,17 +2,17 @@
 // open Session
 session_start();
 $urls = unserialize($_COOKIE['history']);
-array_push($urls, $_SERVER['PHP_SELF']);
+array_push($urls,"Alienware Ryzen");
 if (count($urls) > 5) {
     array_shift($urls);
 }
 //print_r(array_values($urls));
-setcookie("history", serialize($urls), time() + (86400 * 30), "../");
+setcookie("history", serialize($urls), time() + (86400 * 30), "/");
 
 $dc = unserialize($_COOKIE['trend']);
 $dc['RYZEN'] += 1;
 
-setcookie("trend", serialize($dc), time() + (86400 * 30), "../");
+setcookie("trend", serialize($dc), time() + (86400 * 30), "/");
 ?>
 <!DOCTYPE html>
 <html lang="en">

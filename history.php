@@ -1,12 +1,3 @@
-<?php
-// open Session
-session_start();
-if (!isset($_COOKIE["history"])) {
-    echo "There's no history!<br>";
-} else {
-    $urls = unserialize($_COOKIE['history']);
-}
-?>
 <!DOCTYPE HTML>
 <html lang="en">
 <head>
@@ -21,13 +12,21 @@ if (!isset($_COOKIE["history"])) {
         <img src="resource/logo.png" alt="LOGO" style="float: left" width="196" height="70"/>
     </a><br><br><br><br>
 </div>
-The last five visited products are:<br>
 <?php
-foreach ($urls as $url) {
-    echo "$url <br>";
+if (!isset($_COOKIE['history'])) {
+    echo "There's no history!<br>";
+} else {
+    echo "The last five visited products are:<br>";
+    $urls = unserialize($_COOKIE['history']);
+    foreach ($urls as $url) {
+        echo "$url <br>";
+    }
+    echo "<a href=\"clear.php\">Clear History</a>
+<br>";
 }
+
 ?>
-<br>
+
 <a href="product.php">RETURN</a>
 </body>
 </html>

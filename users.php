@@ -32,7 +32,7 @@ if (isset($_SESSION['islogin'])) {
 
     $servername = "127.0.0.1";
     $username = "root";
-    $password = "password";
+    $password = "271828ppp";
     $dbname = "pc314";
 
 // Create connection

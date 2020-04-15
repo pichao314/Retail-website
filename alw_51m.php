@@ -1,18 +1,19 @@
 <?php
-// open Session
-session_start();
-$urls = unserialize($_COOKIE['history']);
-array_push($urls, $_SERVER['PHP_SELF']);
-if (count($urls) > 5) {
-    array_shift($urls);
+$arr = array();
+if(isset($_COOKIE['history'])){
+    $arr = unserialize($_COOKIE['history']);
 }
-//print_r(array_values($urls));
-setcookie("history", serialize($urls), time() + (86400 * 30), "../");
+array_push($arr, "Alienware 51M");
+if (count($arr) > 5) {
+    array_shift($arr);
+}
+$urls = serialize($arr);
+setcookie('history', $urls, time() + (86400 * 30),'/');
 
 $dc = unserialize($_COOKIE['trend']);
 $dc['51M'] += 1;
 
-setcookie("trend", serialize($dc), time() + (86400 * 30), "../");
+setcookie("trend", serialize($dc), time() + (86400 * 30), "/");
 ?>
 <!DOCTYPE html>
 <html lang="en">
