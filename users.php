@@ -126,7 +126,6 @@ if (isset($_SESSION['islogin'])) {
 
     }
     echo "</table>";
-
 //    if ($result->num_rows > 0) {
 //        // output data of each row
 //        while ($row = $result->fetch_assoc()) {
@@ -139,6 +138,16 @@ if (isset($_SESSION['islogin'])) {
     $conn->close();
     echo "<a href='operation.html'>Add or Search User</a><br>";
     echo "<a href='logout.php'>Log out</a><br>";
+    echo "These are users from other sites:<br>";
+    $url = "http://pichao314.com/curl.php";
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, $url);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+    $res = curl_exec($ch);
+    curl_close($ch);
+    echo gettype($res);
+    echo $res;
+
 } else {
     // not logged in
     echo "You haven't logged in, please <a href='login.html'>log in</a>";

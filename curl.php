@@ -41,7 +41,7 @@ while ($row = $result->fetch_assoc()) {
 
 }
 
-$data = json_encode($data);
+$data = json_encode($data, JSON_PRETTY_PRINT);
 
 echo $data;
 
