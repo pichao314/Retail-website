@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Review</title>
+    <link rel="stylesheet" type="text/css" href="style/review.css">
+</head>
+<body>
+
+<div class="background" id="background">
+    <div class="mainContent" id="mainContent">
+        <div class="gen3">
+            <div class="shop-rating">
+                <span class="title">How would you like this product？</span>
+                <ul class="rating-level" id="stars2">
+                    <li><a href="javascript:void(0);" class="one-star"
+                           value="1">1</a></li>
+                    <li><a href="javascript:void(0);" class="two-stars"
+                           value="2">2</a></li>
+                    <li><a href="javascript:void(0);" class="three-stars"
+                           value="3">3</a></li>
+                    <li><a href="javascript:void(0);" class="four-stars"
+                           value="4">4</a></li>
+                    <li><a href="javascript:void(0);" class="five-stars"
+                           value="5">5</a></li>
+                </ul>
+                <span id="stars2-tips" class="result"></span> <input type="hidden"
+                                                                     id="stars2-input" name="b" value="" size="2">
+            </div>
+            <!-- js file -->
+            <script language="javascript" type="text/javascript" src="javascript/review.js"></script>
+        </div>
+        <div>
+            <form action="review.php" method="post">
+                <textarea name="content"></textarea>
+                <div><input type="submit" value="Submit Review"/></div>
+            </form>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>
