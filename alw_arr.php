@@ -1,4 +1,5 @@
 <?php
+
 $urls = unserialize($_COOKIE['history']);
 array_push($urls, "Alienware Aurora");
 if (count($urls) > 5) {
@@ -52,6 +53,8 @@ Up to 64GB Dual Channel HyperX™ FURY DDR4 XMP at 2933MHz
 
 Up to 2TB M.2 PCIe NVMe SSD (Boot) + 2TB 7200RPM SATA 6Gb/s (Storage)
 <br>
+
+
 <a href="product.php">RETURN</a>
 </body>
 </html>

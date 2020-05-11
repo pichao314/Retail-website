@@ -36,6 +36,8 @@ if (!isset($_COOKIE['trend'])) {
     </ul>
 </div>
 
+
+
 <h1>Laptops</h1>
 <table>
     <tr>

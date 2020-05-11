@@ -8,7 +8,7 @@ if (isset($_COOKIE['username'])) {
 $email = "test@example.com";
 if (isset($_SESSION['islogin'])) {
 // if already logged in
-    echo $_SESSION['username'] . " 's rating successfully added!";
+    echo $_SESSION['username'] . " 's rating successfully added!<br>";
     $email = $_SESSION['username'];
 } else {
     // not logged in

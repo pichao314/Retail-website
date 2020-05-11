@@ -143,7 +143,7 @@ if (isset($_SESSION['islogin'])) {
     <?php
 } else {
     // not logged in
-    echo "Want to write review? Please <a href='login.html'>log in</a>";
+    echo "Want to write review? Please <a href='login.html'>log in</a><br>";
 }
 ?>
 <a href="product.php">RETURN</a>
