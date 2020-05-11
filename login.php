@@ -5,8 +5,8 @@ session_start();
 if (isset($_POST['login'])) {
     $username = trim($_POST['username']);
     $password = trim($_POST['password']);
-    $_name = "admin";
-    $_pswd = "asdf";
+    $_name = "admin@email.com";
+    $_pswd = "asdfasdf";
     $servername = "127.0.0.1";
     $dbusername = "root";
     $dbpassword = "password";

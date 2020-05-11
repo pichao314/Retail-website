@@ -98,15 +98,20 @@ if (isset($_SESSION['islogin'])) {
 //        die("Connection failed: " . $conn->connect_error);
 //    }
 
-    $id = 1;
-    $sql = "SELECT * FROM Users WHERE id = " . $id;
+//    $id = 1;
+//    $sql = "SELECT * FROM Users WHERE id = " . $id;
 //    echo $sql . "<br>";
 
+    $sql = "SELECT * FROM Users;";
+
     $result = $conn->query($sql);
+    $rows = $result->fetch_all(MYSQLI_ASSOC);
+    $result->free_result();
+    $conn->close();
 
     echo "<table border='1'><tr><th>ID</th><th>First Name</th><th>Last Name</th><th>Email</th><th>Home Address</th><th>Home Phone</th><th>Cell Phone</th></tr>";
 
-    while ($row = $result->fetch_assoc()) {
+    foreach ($rows as $row) {
         echo "<tr>";
         echo "<td>" . $row['id'] . "</td>";
         echo "<td>" . $row['firstname'] . "</td>";
@@ -116,15 +121,27 @@ if (isset($_SESSION['islogin'])) {
         echo "<td>" . $row['homephone'] . "</td>";
         echo "<td>" . $row['cellphone'] . "</td>";
         echo "</tr>";
-        $id += 1;
-        $sql = "SELECT * FROM Users WHERE id = " . $id;
-        $conn->close();
-        // Create connection
-        $conn = new mysqli($servername, $username, $password, $dbname);
-//        echo $sql . "<br>";
-        $result = $conn->query($sql);
-
     }
+//    while ($row = $result->fetch_assoc()) {
+//        echo "<tr>";
+//        echo "<td>" . $row['id'] . "</td>";
+//        echo "<td>" . $row['firstname'] . "</td>";
+//        echo "<td>" . $row['lastname'] . "</td>";
+//        echo "<td>" . $row['email'] . "</td>";
+//        echo "<td>" . $row['homeaddr'] . "</td>";
+//        echo "<td>" . $row['homephone'] . "</td>";
+//        echo "<td>" . $row['cellphone'] . "</td>";
+//        echo "</tr>";
+//        $id += 1;
+//        $sql = "SELECT * FROM Users WHERE id = " . $id;
+//        $conn->close();
+//        // Create connection
+//        $conn = new mysqli($servername, $username, $password, $dbname);
+////        echo $sql . "<br>";
+//        $result = $conn->query($sql);
+//
+//    }
+
     echo "</table>";
 //    if ($result->num_rows > 0) {
 //        // output data of each row
@@ -135,7 +152,6 @@ if (isset($_SESSION['islogin'])) {
 //        echo "0 results";
 //    }
 
-    $conn->close();
     echo "<a href='operation.html'>Add or Search User</a><br>";
     echo "<a href='logout.php'>Log out</a><br>";
     echo "These are users from other sites:<br>";
