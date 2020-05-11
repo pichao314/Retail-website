@@ -1,6 +1,9 @@
 <?php
 // open Session
 //session_start();
+if (!isset($_POST['username']) or !isset($_POST['password'])) {
+    exit("Username or Password Not found");
+}
 ?>
 <!DOCTYPE HTML>
 <html lang="en">
@@ -21,6 +24,7 @@
 $data = json_encode($_POST, JSON_PRETTY_PRINT);
 
 print_r($data)
+
 
 ?>
 
