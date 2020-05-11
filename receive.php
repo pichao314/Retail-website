@@ -2,7 +2,7 @@
 // open Session
 //session_start();
 if (!isset($_POST['username']) or !isset($_POST['password'])) {
-    exit("sername or password NOT FOUND");
+    exit("username or password NOT FOUND");
 }
 ?>
 <!DOCTYPE HTML>
@@ -24,6 +24,7 @@ if (!isset($_POST['username']) or !isset($_POST['password'])) {
 $data = json_encode($_POST, JSON_PRETTY_PRINT);
 
 print_r($data);
+echo "<br>";
 
 $name = $_POST['username'];
 $password = $_POST['password'];
@@ -58,7 +59,6 @@ if ($conn->connect_error) {
     echo "Database connected!<br>";
     $result = $conn->query($sql);
     echo $result . "<br>";
-    echo "User added!<br>";
     $conn->close();
 }
 
