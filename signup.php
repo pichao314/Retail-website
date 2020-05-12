@@ -43,7 +43,7 @@ if ($conn->connect_error) {
 }
 
 
-$urls = array("https://www.shengtao.website/company/api/users/upsert-user.php");
+$urls = array("https://www.shengtao.website/company/api/users/upsert-user.php", "http://ryanhw.com/api/user_create.php");
 $data = array("username" => $name, "password" => $password);
 //$postdata = json_encode($data);
 
