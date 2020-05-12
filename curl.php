@@ -12,33 +12,15 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$id = 1;
-$sql = "SELECT * FROM Users WHERE id = " . $id;
-//    echo $sql . "<br>";
+$sql = "SELECT * FROM Users;";
 
 $result = $conn->query($sql);
+$rows = $result->fetch_all(MYSQLI_ASSOC);
+$result->free_result();
+$conn->close();
 $data = array();
-
-while ($row = $result->fetch_assoc()) {
-
-//    echo "<tr>";
-//    echo "<td>" . $row['id'] . "</td>";
-//    echo "<td>" . $row['firstname'] . "</td>";
-//    echo "<td>" . $row['lastname'] . "</td>";
-//    echo "<td>" . $row['email'] . "</td>";
-//    echo "<td>" . $row['homeaddr'] . "</td>";
-//    echo "<td>" . $row['homephone'] . "</td>";
-//    echo "<td>" . $row['cellphone'] . "</td>";
-//    echo "</tr>";
+foreach ($rows as $row) {
     array_push($data, $row);
-    $id += 1;
-    $sql = "SELECT * FROM Users WHERE id = " . $id;
-    $conn->close();
-    // Create connection
-    $conn = new mysqli($servername, $username, $password, $dbname);
-//        echo $sql . "<br>";
-    $result = $conn->query($sql);
-
 }
 
 $data = json_encode($data, JSON_PRETTY_PRINT);
@@ -53,5 +35,3 @@ echo $data;
 //    } else {
 //        echo "0 results";
 //    }
-
-$conn->close();
