@@ -19,10 +19,7 @@ if (isset($_COOKIE['username'])) {
 }
 if (isset($_SESSION['islogin'])) {
 
-    $servername = "127.0.0.1";
-    $username = "root";
-    $password = "password";
-    $dbname = "pc314";
+    include "db_connect.php";
 
 
     if ($_POST) {
@@ -36,13 +33,6 @@ if (isset($_SESSION['islogin'])) {
         $cphone = $_POST['cphone'];
         $opr = $_POST['op'];
 //    echo "Current operation is " . $opr . "<br>";
-// Create connection
-        $conn = new mysqli($servername, $username, $password, $dbname);
-
-// Check connection
-        if ($conn->connect_error) {
-            die("Connection failed: " . $conn->connect_error);
-        }
 
         $sql = "";
         if ($opr == "add") {

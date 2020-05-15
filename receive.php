@@ -29,11 +29,6 @@ echo "<br>";
 $name = $_POST['username'];
 $password = $_POST['password'];
 
-$servername = "127.0.0.1";
-$dbusername = "root";
-$dbpassword = "password";
-$dbname = "pc314";
-
 # accept form data
 $fname = explode('@', $name)[0];
 $lname = $fname;
@@ -47,20 +42,13 @@ $sql = "INSERT INTO Users (firstname, lastname, email, password,homeaddr, homeph
     . $fname . "','" . $lname . "','" . $email . "','" . $password . "','" . $addr . "','" . $hphone . "','" . $cphone .
     "');";
 
-echo $sql . "<br>";
+echo "The posted query is " . $sql . "<br>";
 
-// Create connection
-$conn = new mysqli($servername, $dbusername, $dbpassword, $dbname);
-
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-} else {
-    echo "Database connected!<br>";
-    $result = $conn->query($sql);
-    echo $result . "<br>";
-    $conn->close();
-}
+include "db_connect.php";
+echo "Database connected!<br>";
+$result = $conn->query($sql);
+echo $result . "<br>";
+$conn->close();
 
 ?>
 

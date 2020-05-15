@@ -7,17 +7,7 @@ if (isset($_POST['login'])) {
     $password = trim($_POST['password']);
     $_name = "admin@email.com";
     $_pswd = "asdfasdf";
-    $servername = "127.0.0.1";
-    $dbusername = "root";
-    $dbpassword = "password";
-    $dbname = "pc314";
-
-    // Create connection
-    $conn = new mysqli($servername, $dbusername, $dbpassword, $dbname);
-
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
+    include "db_connect.php";
 
     $sql = "SELECT * FROM Users WHERE email = \"" . $username . "\"";
     $result = $conn->query($sql);

@@ -17,7 +17,7 @@ if (!isset($_COOKIE['history'])) {
     echo "There's no history!<br>";
 } else {
     echo "The last five visited products are:<br>";
-    $urls = unserialize($_COOKIE['history']);
+    $urls = json_decode($_COOKIE['history'],true);
     foreach ($urls as $url) {
         echo "$url <br>";
     }

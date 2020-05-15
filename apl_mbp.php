@@ -1,18 +1,6 @@
 <?php
-// open Session
-session_start();
-$urls = unserialize($_COOKIE['history']);
-array_push($urls, "Apple Macbook Pro");
-if (count($urls) > 5) {
-    array_shift($urls);
-}
-//print_r(array_values($urls));
-setcookie("history", serialize($urls), time() + (86400 * 30), "/");
-
-$dc = unserialize($_COOKIE['trend']);
-$dc['MBP'] += 1;
-
-setcookie("trend", serialize($dc), time() + (86400 * 30), "/");
+$item = basename(__FILE__, ".php");
+include 'product_track.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -66,6 +54,9 @@ DisplayPort
 Thunderbolt (up to 40Gb/s)
 USB 3.1 Gen 2 (up to 10Gb/s)
 <br>
+<?php
+include "review_module.php";
+?>
 <a href="product.php">RETURN</a>
 </body>
 </html>

@@ -1,18 +1,6 @@
 <?php
-// open Session
-session_start();
-$urls = unserialize($_COOKIE['history']);
-array_push($urls, "Apple iMac");
-if (count($urls) > 5) {
-    array_shift($urls);
-}
-//print_r(array_values($urls));
-setcookie("history", serialize($urls), time() + (86400 * 30), "/");
-
-$dc = unserialize($_COOKIE['trend']);
-$dc['IMAC'] += 1;
-
-setcookie("trend", serialize($dc), time() + (86400 * 30), "/");
+$item = basename(__FILE__, ".php");
+include 'product_track.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -61,6 +49,9 @@ Configurable to 1TB Fusion Drive or 256GB SSD
 
 Intel Iris Plus Graphics 640
 <br>
+<?php
+include "review_module.php";
+?>
 <a href="product.php">RETURN</a>
 </body>
 </html>

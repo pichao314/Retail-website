@@ -1,16 +1,17 @@
 <?php
 if (!isset($_COOKIE['history'])) {
     $arr = array();
-    setcookie('history', serialize($arr),time() + (86400 * 3),'/');
+    setcookie('history', json_encode($arr), time() + (86400 * 3), '/');
 } else {
-    $urls = unserialize($_COOKIE['history']);
+    $urls = json_decode($_COOKIE['history'],true);
 //    print_r(array_values($urls));
 }
 if (!isset($_COOKIE['trend'])) {
-    $dc = array("51M"=>0,"Aurora"=>0,"M15"=>0,"M17"=>0,"R8"=>0,"RYZEN"=>0,"IMAC"=>0,"IMP"=>0,"MBA"=>0,"MBP"=>0);
-    setcookie("trend",serialize($dc),time() + (86400 * 30), '/');
+//    $dc = array("51M"=>0,"Aurora"=>0,"M15"=>0,"M17"=>0,"R8"=>0,"RYZEN"=>0,"IMAC"=>0,"IMP"=>0,"MBA"=>0,"MBP"=>0);
+    $dc = array();
+    setcookie("trend", json_encode($dc), time() + (86400 * 30), '/');
 } else {
-    $items = unserialize($_COOKIE['trend']);
+    $items = json_decode($_COOKIE['trend'],true);
 //    print_r(array_values($items));
 }
 ?>
@@ -31,11 +32,10 @@ if (!isset($_COOKIE['trend'])) {
 
 <div>
     <ul>
-        <li><a href="history.php">Last visited</a> </li>
-        <li><a href="trend.php">Most visited</a> </li>
+        <li><a href="history.php">Last visited</a></li>
+        <li><a href="trend.php">Most visited</a></li>
     </ul>
 </div>
-
 
 
 <h1>Laptops</h1>

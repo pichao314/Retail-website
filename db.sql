@@ -1,6 +1,7 @@
 CREATE TABLE Users (id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,firstname VARCHAR(30) NOT NULL,lastname VARCHAR(30)
- NOT NULL,email VARCHAR(50),password VARCHAR(50) default 'password',homeaddr VARCHAR(50),homephone VARCHAR(50),cellphone VARCHAR(50),
- reg_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP);
+ NOT NULL,email VARCHAR(50),password VARCHAR(50) default 'password',homeaddr VARCHAR(50),homephone VARCHAR(50),
+ cellphone VARCHAR(50),last_visit VARCHAR(100) default '[]',
+ reg_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP);
 INSERT INTO Users (firstname, lastname, email, homeaddr, homephone, cellphone) VALUES ('Franchesca', 'Kirch',
 'Franchesca@example.com','Kirch home','0000000','0000000');
 INSERT INTO Users (firstname, lastname, email, homeaddr, homephone, cellphone) VALUES ('Detra', 'Yeomans',
