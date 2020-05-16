@@ -53,3 +53,20 @@ if (isset($_SESSION['username'])) {
     $conn->query($sql);
     $conn->close();
 }
+
+include "db_connect.php";
+$sql = "select item,v from Visit where item='" . $item . "';";
+//echo "The visit sql is:" . $sql;
+//
+//$sql = "UPDATE Users SET last_visit = '" . $his
+//    . " 'WHERE  email='" . $_SESSION['username'] . "' AND id>0;";
+
+//    echo "The update sql is :" . $sql;
+$result = $conn->query($sql);
+$row = $result->fetch_assoc();
+//echo "The visited number is " . $row['v'];
+$nv = $row['v'] + 1;
+$upd = "UPDATE Visit SET v = " . $nv
+    . " WHERE  item='" . $item . "' AND id>0;";
+$conn->query($upd);
+$conn->close();
