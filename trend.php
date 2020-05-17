@@ -1,12 +1,3 @@
-<!DOCTYPE HTML>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>PC314 - TREND</title>
-    <!--    <link rel="stylesheet" href="style/pcstyle.css">-->
-</head>
-
-
 <?php
 if (isset($_POST['username'])) {
     include "db_connect.php";
@@ -33,7 +24,15 @@ if (isset($_POST['username'])) {
         echo $data;
     }
 } else {
-    echo "<body>
+    echo "
+<!DOCTYPE HTML>
+<html lang=\"en\">
+<head>
+    <meta charset=\"UTF-8\">
+    <title>PC314 - TREND</title>
+    <!--    <link rel=\"stylesheet\" href=\"style/pcstyle.css\">-->
+</head>
+<body>
 <div>
     <a href=\"index.php\">
         <img src=\"resource/logo.png\" alt=\"LOGO\" style=\"float: left\" width=\"196\" height=\"70\"/>
