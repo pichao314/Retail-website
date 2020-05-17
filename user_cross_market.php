@@ -55,7 +55,7 @@ if (isset($_SESSION['islogin'])) {
 $urls = array("http://pichao314.com/trend.php",
     "http://ryanhw.com/api/uservisiting.php",
     "https://www.shengtao.website/company/api/site/user-last-visited.php",
-    "http://xunand.com/last_viewed.php");
+    "http://xunand.com/history.php");
 
 foreach ($urls as $url) {
     try {
