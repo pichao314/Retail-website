@@ -56,9 +56,15 @@ foreach ($urls as $url) {
         $data = json_decode($result, true);
 
 //        print_r(explode("/", $url));
-        echo explode("/", $url)[2];
+        echo "Most visted product at ".explode("/", $url)[2];
 
-        echo "<table border='1'><tr><th>Product Name</th><th>Total Visit</th></tr>";
+        echo "<table border='1' class='table'>
+<thead class='thead-dark'>
+<tr>
+<th>Product Name</th>
+<th>Total Visit</th>
+</tr>
+</thead>";
 
         foreach ($data as $row) {
             echo "<tr>";

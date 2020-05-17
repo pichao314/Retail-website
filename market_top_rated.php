@@ -55,9 +55,12 @@ foreach ($urls as $url) {
         $data = json_decode($result, true);
 
 //        print_r(explode("/", $url));
-        echo explode("/", $url)[2];
+        echo "Top rated at " . explode("/", $url)[2];
 
-        echo "<table border='1'><tr><th>Product Name</th><th>Average Rating</th></tr>";
+        echo "<table border='1' class='table'>
+<thead class='thead-dark'>
+<tr><th>Product Name</th><th>Average Rating</th>
+</tr></thead>";
 
         foreach ($data as $row) {
             echo "<tr>";
