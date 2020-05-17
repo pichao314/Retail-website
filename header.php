@@ -1,14 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>PC314 - SIGNUP</title>
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <link href="style/shop-homepage.css" rel="stylesheet">
+
 </head>
+
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
         <a class="navbar-brand" href="index.php"><img src="resource/logo.png"></a>
@@ -24,7 +22,7 @@
                     <a class="nav-link" href="product.php">Product</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="login.html">Log In</a>
+                    <a class="nav-link" href="login.html">Login</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="users.php">User List</a>
@@ -34,38 +32,4 @@
     </div>
 </nav>
 
-<br><br>
-
-<body>
-
-<form method="POST" action="signup.php">
-    <fieldset>
-        <legend>Sign Up</legend>
-        <ul>
-            <li>
-                <label>Email:</label>
-                <input type="email" name="username">
-            </li>
-            <li>
-                <label>Password:</label>
-                <input type="password" name="password">
-            </li>
-            <li>
-                <label> </label>
-                <input type="submit" name="signup" value="signup">
-            </li>
-        </ul>
-    </fieldset>
-</form>
-</body>
-<footer class="py-5 bg-dark">
-    <div class="container">
-        <p class="m-0 text-center text-white">Copyright &copy; PC314 2020</p>
-    </div>
-    <!-- /.container -->
-</footer>
-
-<!-- Bootstrap core JavaScript -->
-<script src="vendor/jquery/jquery.min.js"></script>
-<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-</html>
+<br>

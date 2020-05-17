@@ -3,13 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <title>PC314 - USERS</title>
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="style/shop-homepage.css" rel="stylesheet">
+
 </head>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="index.php"><img src="resource/logo.png"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.php">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="product.php">Product</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="login.html">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="users.php">User List</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
 
 <body>
 <div>
-    <a href="index.php">
-        <img src="resource/logo.png" alt="LOGO" style="float: left" width="196" height="70"/>
-    </a><br><br><br><br>
+<br><br>
 </div>
 
 <form action="operation.php" method="post">
@@ -53,8 +82,16 @@
     </fieldset>
 </form>
 
-<a href='users.php'>Return</a><br>
 
 </body>
+<footer class="py-5 bg-dark">
+    <div class="container">
+        <p class="m-0 text-center text-white">Copyright &copy; PC314 2020</p>
+    </div>
+    <!-- /.container -->
+</footer>
 
+<!-- Bootstrap core JavaScript -->
+<script src="vendor/jquery/jquery.min.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 </html>

@@ -1,20 +1,26 @@
 <?php
 $item = basename(__FILE__, ".php");
-include 'product_track.php';
+include '../product_track.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>alw 51m</title>
+    <link rel="stylesheet" type="text/css" href="style/review.css">
 </head>
-<?php
-include "header.php"
-?>
 <body>
 
+<div>
+    <!--    <a href="index.php">-->
+    <!--        <img src="resource/logo.png" alt="LOGO" style="float: left" width="196" height="70"/>-->
+    <!--    </a><br><br><br><br>-->
+    <?php
+    include "header.php";
+    ?>
+</div>
 
-<img src="resource/51m.webp" style="width:300px;height:200px;">
+<img src="../resource/51m.webp" style="width:300px;height:200px;">
 
 <h1>ALIENWARE AREA-51M</h1>
 
@@ -47,8 +53,8 @@ Up to 17.3" FHD (1920 x 1080) 144Hz, NVIDIA G-SYNC, Eyesafe® Display Tech + Tob
 <br>
 
 <?php
-include "review_module.php";
-include "footer.php";
+include "../review_module.php";
 ?>
+<a href="product.php">RETURN</a>
 </body>
 </html>

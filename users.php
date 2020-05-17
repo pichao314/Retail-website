@@ -10,12 +10,10 @@ session_start();
 </head>
 
 <body>
-<div>
-    <a href="index.php">
-        <img src="resource/logo.png" alt="LOGO" style="float: left" width="196" height="70"/>
-    </a><br><br><br><br>
-</div>
-
+<?php
+include "header.php";
+?>
+<br>
 <?php
 
 // check if the cookie remembered the user info
@@ -31,6 +29,8 @@ if (isset($_SESSION['islogin'])) {
 //    ALTER USER 'mysqlUsername'@'localhost' IDENTIFIED WITH mysql_native_password BY 'mysqlUsernamePassword'
 
     include "db_connect.php";
+    echo "<a href='operation.html'>Add or Search User</a><br>";
+    echo "<a href='logout.php'>Log out</a><br>";
     $sql = "SELECT * FROM Users;";
 
     $result = $conn->query($sql);
@@ -51,38 +51,11 @@ if (isset($_SESSION['islogin'])) {
         echo "<td>" . $row['cellphone'] . "</td>";
         echo "</tr>";
     }
-//    while ($row = $result->fetch_assoc()) {
-//        echo "<tr>";
-//        echo "<td>" . $row['id'] . "</td>";
-//        echo "<td>" . $row['firstname'] . "</td>";
-//        echo "<td>" . $row['lastname'] . "</td>";
-//        echo "<td>" . $row['email'] . "</td>";
-//        echo "<td>" . $row['homeaddr'] . "</td>";
-//        echo "<td>" . $row['homephone'] . "</td>";
-//        echo "<td>" . $row['cellphone'] . "</td>";
-//        echo "</tr>";
-//        $id += 1;
-//        $sql = "SELECT * FROM Users WHERE id = " . $id;
-//        $conn->close();
-//        // Create connection
-//        $conn = new mysqli($servername, $username, $password, $dbname);
-////        echo $sql . "<br>";
-//        $result = $conn->query($sql);
-//
-//    }
+
 
     echo "</table>";
-//    if ($result->num_rows > 0) {
-//        // output data of each row
-//        while ($row = $result->fetch_assoc()) {
-//            echo "id: " . $row["id"] . " - Name: " . $row["firstname"] . " " . $row["lastname"] . "<br>";
-//        }
-//    } else {
-//        echo "0 results";
-//    }
 
-    echo "<a href='operation.html'>Add or Search User</a><br>";
-    echo "<a href='logout.php'>Log out</a><br>";
+
     echo "These are users from other sites:<br>";
     $url = "https://www.shengtao.website/company/api/users.php";
     $ch = curl_init();
@@ -108,5 +81,7 @@ if (isset($_SESSION['islogin'])) {
 ?>
 
 </body>
-
+<?php
+include "footer.php";
+?>
 </html>

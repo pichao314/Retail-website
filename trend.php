@@ -15,6 +15,7 @@ if (isset($_POST['username'])) {
         $data = array();
         foreach ($row as $r) {
             $pn = $r['url'];
+            $r['product_name'] = $pn;
             $r['url'] = get_url($pn);
             array_push($data, $r);
         }

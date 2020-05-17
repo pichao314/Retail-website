@@ -8,6 +8,9 @@ include 'product_track.php';
     <meta charset="UTF-8">
     <title>alw m17</title>
 </head>
+<?php
+include "header.php"
+?>
 <body>
 
 <div>
@@ -48,8 +51,7 @@ Up to 17.3" FHD (1920 x 1080) 144Hz with Eyesafe® and Tobii Eyetracking technol
 <br>
 <?php
 include "review_module.php";
+include "footer.php";
 ?>
-<a href="product.php">RETURN</a>
-
 </body>
 </html>

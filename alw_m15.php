@@ -8,6 +8,9 @@ include 'product_track.php';
     <meta charset="UTF-8">
     <title>alw m15</title>
 </head>
+<?php
+include "header.php"
+?>
 <body>
 
 <div>
@@ -48,8 +51,8 @@ Up to 15.6" OLED UHD (3840 x 2160) 60Hz, Eyesafe® Display Tech + Tobii Eyetrack
 <br>
 <?php
 include "review_module.php";
+include "footer.php";
 ?>
 
-<a href="product.php">RETURN</a>
 </body>
 </html>

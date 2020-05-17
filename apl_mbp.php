@@ -8,6 +8,9 @@ include 'product_track.php';
     <meta charset="UTF-8">
     <title>apl mbp</title>
 </head>
+<?php
+include "header.php"
+?>
 <body>
 
 <div>
@@ -56,7 +59,7 @@ USB 3.1 Gen 2 (up to 10Gb/s)
 <br>
 <?php
 include "review_module.php";
+include "footer.php";
 ?>
-<a href="product.php">RETURN</a>
 </body>
 </html>

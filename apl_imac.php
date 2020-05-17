@@ -8,6 +8,9 @@ include 'product_track.php';
     <meta charset="UTF-8">
     <title>apl imac</title>
 </head>
+<?php
+include "header.php"
+?>
 <body>
 
 <div>
@@ -51,7 +54,7 @@ Intel Iris Plus Graphics 640
 <br>
 <?php
 include "review_module.php";
+include "footer.php";
 ?>
-<a href="product.php">RETURN</a>
 </body>
 </html>

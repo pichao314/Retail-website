@@ -8,6 +8,9 @@ include 'product_track.php';
     <meta charset="UTF-8">
     <title>apl mba</title>
 </head>
+<?php
+include "header.php"
+?>
 <body>
 
 <div>
@@ -50,7 +53,7 @@ Configurable to 16GB of memory
 <br>
 <?php
 include "review_module.php";
+include "footer.php";
 ?>
-<a href="product.php">RETURN</a>
 </body>
 </html>

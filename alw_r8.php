@@ -8,6 +8,9 @@ include 'product_track.php';
     <meta charset="UTF-8">
     <title>alw r8</title>
 </head>
+<?php
+include "header.php"
+?>
 <body>
 
 <div>
@@ -44,7 +47,7 @@ Up to 2TB M.2 PCIe NVMe SSD (Boot) + 2TB 7200RPM 3.5" SATA HDD (Storage)
 <br>
 <?php
 include "review_module.php";
+include "footer.php";
 ?>
-<a href="product.php">RETURN</a>
 </body>
 </html>
