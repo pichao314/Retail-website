@@ -23,8 +23,8 @@ if (isset($_POST['username'])) {
     } else {
         $data = array();
         foreach ($row as $r) {
-            $pn = $row['url'];
-            $row['url'] = get_url($pn);
+            $pn = $r['url'];
+            $r['url'] = get_url($pn);
             array_push($data, $r);
         }
 
