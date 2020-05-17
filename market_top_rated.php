@@ -45,6 +45,8 @@ $urls = array("http://pichao314.com/top5.php",
     "https://www.shengtao.website/company/api/products/rating-highest.php",
     "http://xunand.com/top_rate.php");
 
+$total = array();
+
 foreach ($urls as $url) {
     try {
         $ch = curl_init();
@@ -66,6 +68,7 @@ foreach ($urls as $url) {
             echo "<tr>";
             echo "<td>" . $row['product_name'] . "</td>";
             echo "<td>" . $row['average_rating'] . "</td>";
+            $total[$row['product_name']] = $row['average_rating'];
             echo "</tr>";
         }
 
@@ -76,6 +79,28 @@ foreach ($urls as $url) {
         throw new Exception("Invalid URL", 0, $e);
     }
 }
+
+echo "Global Rate Rank:<br>";
+echo "<table border='1' class='table'>
+<thead class='thead-dark'>
+<tr>
+<th>Product Name</th>
+<th>Average Rating</th>
+</tr>
+</thead>";
+
+arsort($total);
+
+foreach ($total as $product=>$count) {
+    echo "<tr>";
+    echo "<td>" . $product. "</td>";
+    echo "<td>" . $count. "</td>";
+    echo "</tr>";
+}
+
+
+echo "</table>";
+echo "<br>";
 
 include "footer.php"
 ?>

@@ -46,6 +46,8 @@ $urls = array("http://pichao314.com/topvisit.php",
     "https://www.shengtao.website/company/api/products/most-visited.php",
     "http://xunand.com/most_liked.php");
 
+$total = array();
+
 foreach ($urls as $url) {
     try {
         $ch = curl_init();
@@ -56,7 +58,7 @@ foreach ($urls as $url) {
         $data = json_decode($result, true);
 
 //        print_r(explode("/", $url));
-        echo "Most visted product at ".explode("/", $url)[2];
+        echo "Most visted product at " . explode("/", $url)[2];
 
         echo "<table border='1' class='table'>
 <thead class='thead-dark'>
@@ -70,6 +72,7 @@ foreach ($urls as $url) {
             echo "<tr>";
             echo "<td>" . $row['product_name'] . "</td>";
             echo "<td>" . $row['count'] . "</td>";
+            $total[$row['product_name']] = $row['count'];
             echo "</tr>";
         }
 
@@ -80,6 +83,28 @@ foreach ($urls as $url) {
         throw new Exception("Invalid URL", 0, $e);
     }
 }
+
+echo "Global Total Visit:<br>";
+echo "<table border='1' class='table'>
+<thead class='thead-dark'>
+<tr>
+<th>Product Name</th>
+<th>Total Visit</th>
+</tr>
+</thead>";
+
+arsort($total);
+
+foreach ($total as $product=>$count) {
+    echo "<tr>";
+    echo "<td>" . $product. "</td>";
+    echo "<td>" . $count. "</td>";
+    echo "</tr>";
+}
+
+
+echo "</table>";
+echo "<br>";
 
 
 include "footer.php"
