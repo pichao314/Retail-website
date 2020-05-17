@@ -18,7 +18,7 @@ include 'product_track.php';
 
 <img src="resource/ryzen.webp" style="width:300px;height:200px;">
 
-<h1>ALIENWARE AURORA R8</h1>
+<h1>ALIENWARE Ryzen</h1>
 
 High-performance desktop with up to 16-core 3rd Gen AMD Ryzen™ overclockable processors designed for gamers who create.
 

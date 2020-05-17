@@ -18,7 +18,7 @@ include 'product_track.php';
 
 <img src="resource/arr.webp" style="width:300px;height:200px;">
 
-<h1>ALIENWARE AURORA R8</h1>
+<h1>ALIENWARE AURORA</h1>
 
 A gaming desktop with the Legend Industrial Design and 9th Gen Intel® Core™ processors. Featuring improved airflow and
 engineering fit for esports pros.

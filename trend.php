@@ -12,15 +12,25 @@ if (isset($_POST['username'])) {
     include "db_connect.php";
     $email = $_POST['username'];
     $sql = "select last_visit from Users where email = '" . $email . "';";
+    $sql = "select item as url, view_time as timestamp from Visit where user='".$email."' order by view_time DESC limit 5;";
     $result = $conn->query($sql);
-    $row = $result->fetch_assoc();
+    $row = $result->fetch_all(MYSQLI_ASSOC);
     $result->free_result();
     $conn->close();
     if (!$row) {
         echo "[]";
     }
     else
-        echo $row['last_visit'];
+    {
+        $data = array();
+        foreach ($row as $r) {
+            array_push($data, $r);
+        }
+
+        $data = json_encode($data, JSON_PRETTY_PRINT);
+
+        echo $data;
+    }
 } else {
     echo "<body>
 <div>

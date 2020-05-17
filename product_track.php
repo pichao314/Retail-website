@@ -19,7 +19,8 @@ if (isset($_COOKIE['history'])) {
     $arr = json_decode($_COOKIE['history'], true);
 }
 # push current product into visit history
-$arr[] = $item;
+
+$arr[$item] = $item;
 //array_push($arr, $item);
 
 # shift array if exceed 5
@@ -46,27 +47,28 @@ setcookie("trend", json_encode($dc), time() + (86400 * 30), "/");
 if (isset($_SESSION['username'])) {
     include "db_connect.php";
 
-    $sql = "UPDATE Users SET last_visit = '" . $his
-        . " 'WHERE  email='" . $_SESSION['username'] . "' AND id>0;";
+//    $sql = "UPDATE Users SET last_visit = '" . $his
+//        . " 'WHERE  email='" . $_SESSION['username'] . "' AND id>0;";
+    $sql = "INSERT INTO Visit (user,item) VALUES ('".$_SESSION['username']."','".$item."')";
 
 //    echo "The update sql is :" . $sql;
     $conn->query($sql);
     $conn->close();
 }
 
-include "db_connect.php";
-$sql = "select item,v from Visit where item='" . $item . "';";
-//echo "The visit sql is:" . $sql;
+//include "db_connect.php";
+//$sql = "select item,v from Visit where item='" . $item . "';";
+////echo "The visit sql is:" . $sql;
+////
+////$sql = "UPDATE Users SET last_visit = '" . $his
+////    . " 'WHERE  email='" . $_SESSION['username'] . "' AND id>0;";
 //
-//$sql = "UPDATE Users SET last_visit = '" . $his
-//    . " 'WHERE  email='" . $_SESSION['username'] . "' AND id>0;";
-
-//    echo "The update sql is :" . $sql;
-$result = $conn->query($sql);
-$row = $result->fetch_assoc();
-//echo "The visited number is " . $row['v'];
-$nv = $row['v'] + 1;
-$upd = "UPDATE Visit SET v = " . $nv
-    . " WHERE  item='" . $item . "' AND id>0;";
-$conn->query($upd);
-$conn->close();
+////    echo "The update sql is :" . $sql;
+//$result = $conn->query($sql);
+//$row = $result->fetch_assoc();
+////echo "The visited number is " . $row['v'];
+//$nv = $row['v'] + 1;
+//$upd = "UPDATE Visit SET v = " . $nv
+//    . " WHERE  item='" . $item . "' AND id>0;";
+//$conn->query($upd);
+//$conn->close();
