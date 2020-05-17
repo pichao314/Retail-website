@@ -24,7 +24,6 @@ if (isset($_POST['content'])) {
 }
 include "db_connect.php";
 
-
 $item = "index";
 if (isset($_POST["item"])) {
     $item = $_POST["item"];
@@ -58,8 +57,12 @@ if ($row) {
     echo $sql;
 }
 
-$conn = new mysqli($servername, $username, $password, $dbname);
+$conn = new mysqli($servername, $dbusername, $dbpassword, $dbname);
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
 $result = $conn->query($sql);
+print_r($result);
 echo "<a href=" . $item . ".php>RETURN</a>";
 
 $conn->close();

@@ -34,24 +34,14 @@ if (isset($_SESSION['islogin'])) {
 
     <div>
         <form action="review.php" method="post">
-            <input type="radio" name="score"
-                <?php if (isset($score) && $score == 1) echo "checked"; ?>
-                   value=1>1
-            <input type="radio" name="score"
-                <?php if (isset($score) && $score == 2) echo "checked"; ?>
-                   value=2>2
-            <input type="radio" name="score"
-                <?php if (isset($score) && $score == 3) echo "checked"; ?>
-                   value=3>3
-            <input type="radio" name="score"
-                <?php if (isset($score) && $score == 4) echo "checked"; ?>
-                   value=4>4
-            <input type="radio" name="score"
-                <?php if (isset($score) && $score == 5) echo "checked"; ?>
-                   value=5>5
+            <input type="radio" name="score" value=1 required>1
+            <input type="radio" name="score" value=2>2
+            <input type="radio" name="score" value=3>3
+            <input type="radio" name="score" value=4>4
+            <input type="radio" name="score" value=5>5
             <input type="hidden" name="item" value="<?php echo $item ?>">
             <br>Write your review here:<br>
-            <textarea name="content"></textarea>
+            <textarea name="content" required></textarea>
             <div><input type="submit" value="Submit Review"/></div>
         </form>
     </div>
