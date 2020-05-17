@@ -29,33 +29,35 @@ if (isset($_POST["item"])) {
     $item = $_POST["item"];
 }
 
-$find = "SELECT * FROM Reviews WHERE email='" . $email . "' AND item='" . $item . "'";
-$result = $conn->query($find);
-$conn->close();
-$row = $result->fetch_assoc();
-$sql = "";
-if ($row) {
-    print_r($row);
-    echo "<br>";
-    if (isset($_GET['score'])) {
-        $sql = "UPDATE Reviews SET score = " . $score . ",post_date = CURRENT_TIMESTAMP"
-            . " WHERE  email='" . $email . "' AND item='" .
-            $item . "'";
-        echo $sql;
-    }
-    if (isset($_POST['content'])) {
-        $sql = "UPDATE Reviews SET review = '" . $review
-            . "',post_date = CURRENT_TIMESTAMP"
-            . " WHERE  email='" . $email . "' AND item='" .
-            $item . "'";
-        echo "Rating for " . $item . " successfully added!";
-    }
-} else {
-    echo "Review not found<br>";
-    $sql = "INSERT INTO Reviews (email, score, item, review) VALUES(
-        '" . $email . "', " . $score . ", '" . $item . "', '" . $review . "');";
-    echo $sql;
-}
+//$find = "SELECT * FROM Reviews WHERE email='" . $email . "' AND item='" . $item . "'";
+//$result = $conn->query($find);
+//$conn->close();
+//$row = $result->fetch_assoc();
+//$sql = "";
+//if ($row) {
+//    print_r($row);
+//    echo "<br>";
+//    if (isset($_GET['score'])) {
+//        $sql = "UPDATE Reviews SET score = " . $score . ",post_date = CURRENT_TIMESTAMP"
+//            . " WHERE  email='" . $email . "' AND item='" .
+//            $item . "'";
+//        echo $sql;
+//    }
+//    if (isset($_POST['content'])) {
+//        $sql = "UPDATE Reviews SET review = '" . $review
+//            . "',post_date = CURRENT_TIMESTAMP"
+//            . " WHERE  email='" . $email . "' AND item='" .
+//            $item . "'";
+//        echo "Rating for " . $item . " successfully added!";
+//    }
+//} else {
+//    echo "Review not found<br>";
+//    $sql = "INSERT INTO Reviews (email, score, item, review) VALUES(
+//        '" . $email . "', " . $score . ", '" . $item . "', '" . $review . "');";
+//    echo $sql;
+//}
+$sql = "INSERT INTO Reviews (email, score, item, review) VALUES('"
+    . $email . "', " . $score . ", '" . $item . "', '" . $review . "');";
 
 $conn = new mysqli($servername, $dbusername, $dbpassword, $dbname);
 if ($conn->connect_error) {

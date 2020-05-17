@@ -38,7 +38,7 @@ if (isset($_SESSION['islogin'])) {
     $result->free_result();
     $conn->close();
 
-    echo "<table border='1'><tr><th>ID</th><th>First Name</th><th>Last Name</th><th>Email</th><th>Home Address</th><th>Home Phone</th><th>Cell Phone</th></tr>";
+    echo "<table border='1' class='table'><tr><th>ID</th><th>First Name</th><th>Last Name</th><th>Email</th><th>Home Address</th><th>Home Phone</th><th>Cell Phone</th></tr>";
 
     foreach ($rows as $row) {
         echo "<tr>";
@@ -64,7 +64,7 @@ if (isset($_SESSION['islogin'])) {
     $res = curl_exec($ch);
     curl_close($ch);
     $res = json_decode($res, true);
-    echo "<table border='1'><tr><th>ID</th><th>First Name</th><th>Last Name</th><th>Email</th><th>Home Address</th><th>Home Phone</th><th>Cell Phone</th></tr>";
+    echo "<table border='1' class='table-dark'><tr><th>ID</th><th>First Name</th><th>Last Name</th><th>Email</th><th>Home Address</th><th>Home Phone</th><th>Cell Phone</th></tr>";
     foreach ($res as $pp) {
         echo "<tr>";
         foreach ($pp as $td) {

@@ -68,8 +68,14 @@ foreach ($urls as $url) {
         $result = curl_exec($ch);
         curl_close($ch);
         $data = json_decode($result, true);
-        print_r($data);
-        echo "<table border='1'><tr><th>Url Name</th><th>Last Visit</th></tr>";
+        echo "Custormer ".$email."'s last visit at ".explode('/',$url)[2];
+        echo "<table border='1' class='table'>
+            <thead class='thead-dark'>
+            <tr>
+            <th>Product Name</th>
+            <th>Last Visit</th>
+            </tr>
+            </thead>";
         foreach ($data as $row) {
             echo "<tr>";
             if (!isset($row['product_name'])) {
