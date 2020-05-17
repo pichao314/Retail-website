@@ -10,20 +10,21 @@
 <?php
 if (isset($_POST['username'])) {
     include "db_connect.php";
+    include "nameconv.php";
     $email = $_POST['username'];
     $sql = "select last_visit from Users where email = '" . $email . "';";
-    $sql = "select item as url, view_time as timestamp from Visit where user='".$email."' order by view_time DESC limit 5;";
+    $sql = "select item as url, view_time as timestamp from Visit where user='" . $email . "' order by view_time DESC limit 5;";
     $result = $conn->query($sql);
     $row = $result->fetch_all(MYSQLI_ASSOC);
     $result->free_result();
     $conn->close();
     if (!$row) {
         echo "[]";
-    }
-    else
-    {
+    } else {
         $data = array();
         foreach ($row as $r) {
+            $pn = $row['url'];
+            $row['url'] = get_url($pn);
             array_push($data, $r);
         }
 
