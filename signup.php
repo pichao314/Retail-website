@@ -22,11 +22,11 @@ $sql = "INSERT INTO Users (firstname, lastname, email, password,homeaddr, homeph
     . $fname . "','" . $lname . "','" . $email . "','" . $password . "','" . $addr . "','" . $hphone . "','" . $cphone .
     "');";
 
-echo $sql . "<br>";
+//echo $sql . "<br>";
 
 include "db_connect.php";
 
-echo "Database connected!<br>";
+//echo "Database connected!<br>";
 $result = $conn->query($sql);
 echo $result . "<br>";
 $conn->close();
@@ -45,13 +45,14 @@ foreach ($urls as $url) {
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         $result = curl_exec($ch);
         curl_close($ch);
-        echo($result);
-        echo "<br>";
+//        echo($result);
+//        echo "<br>";
     } catch (Exception $e) {
         throw new Exception("Invalid URL", 0, $e);
         curl_close($ch);
     }
 }
+echo "User " . $name . " registered successfully!";
 
 
 echo "<a href='index.php'>Return</a><br>";
