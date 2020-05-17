@@ -49,7 +49,7 @@ if ($row) {
             . "',post_date = CURRENT_TIMESTAMP"
             . " WHERE  email='" . $email . "' AND item='" .
             $item . "'";
-        echo $sql;
+        echo "Rating for " . $item . " successfully added!";
     }
 } else {
     echo "Review not found<br>";

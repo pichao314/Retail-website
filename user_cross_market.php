@@ -40,6 +40,18 @@ include "header.php";
 //curl_close($ch);
 //$res = json_decode($res, true);
 
+// check if the cookie remembered the user info
+if (isset($_COOKIE['username'])) {
+    // if so, passed to session directory
+    $_SESSION['username'] = $_COOKIE['username'];
+    $_SESSION['islogin'] = 1;
+}
+$email = "admin@email.com";
+if (isset($_SESSION['islogin'])) {
+// if already logged in
+    $email = $_SESSION['username'];
+}
+
 $urls = array("http://pichao314.com/trend.php",
     "http://ryanhw.com/api/uservisiting.php",
     "https://www.shengtao.website/company/api/site/user-last-visited.php",
@@ -48,7 +60,7 @@ $urls = array("http://pichao314.com/trend.php",
 foreach ($urls as $url) {
     try {
         $ch = curl_init();
-        $data = array("username" => "Juli@example.com");
+        $data = array("username" => $email);
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_POST, 1);
         curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
