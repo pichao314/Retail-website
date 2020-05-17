@@ -72,12 +72,11 @@ foreach ($urls as $url) {
 //        print_r(explode("/", $url));
         echo explode("/", $url)[2];
 
-        echo "<table border='1'><tr><th>Product Name</th><th>Product Url</th><th>Last Visit</th></tr>";
+        echo "<table border='1'><tr><th>Product Name</th><th>Last Visit</th></tr>";
 
         foreach ($data as $row) {
             echo "<tr>";
-            echo "<td>" . $row['product_name'] . "</td>";
-            echo "<td>" . $row['url'] . "</td>";
+            echo "<td><a href='" . $row['url'] . "'>" . $row['product_name'] . "</a> </td>";
             echo "<td>" . $row['timestamp'] . "</td>";
             echo "</tr>";
         }
